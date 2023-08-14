@@ -1,38 +1,125 @@
-.App {
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: white; /* Fundo branco */
+}
+
+.container {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  padding: 0;
+  color: white; /* Letras brancas */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.title {
+  background-color: black;
   color: white;
+  padding: 20px 0;
+  margin: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  background: linear-gradient(to bottom, black, white);
+  padding: 20px;
+  color: black; /* Altere a cor do texto conforme necessário */
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Adicione esta linha para permitir posicionamento relativo */
 }
 
-@keyframes App-logo-spin {
+.paragraph {
+  position: absolute;
+  bottom: 80px; /* Ajuste essa distância para controlar a altura do parágrafo */
+  left: 20px;
+  transform: translateX(-100%);
+  opacity: 0;
+  color: black;
+  animation: fadeInLeft 1s ease-in-out forwards;
+  width: calc(100% - 40px);
+}
+
+@keyframes fadeInLeft {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateX(-100%);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateX(0);
   }
+}
+
+/* Estilo para botões em geral */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para o link do WhatsApp */
+.whatsapp-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-decoration: none;
+}
+
+/* Estilo para o container do botão do WhatsApp */
+.whatsapp-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #25d366; /* Cor do WhatsApp */
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.whatsapp-button-container:hover {
+  transform: scale(1.1);
+}
+
+/* Estilo para o ícone do WhatsApp */
+.whatsapp-icon {
+  color: white;
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+.new-paragraphs {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  color: black; /* Adicione esta linha para definir a cor do texto como preta */
+}
+
+.new-paragraphs.show {
+  opacity: 1;
+  transform: translateY(0);
 }
